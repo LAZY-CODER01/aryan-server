@@ -1,5 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
+
+app.use(cors());
+
+
 const dbconnect = require('./config/database');
 require('dotenv').config();
 const cardRoutes = require("./routes/cardCRUD");

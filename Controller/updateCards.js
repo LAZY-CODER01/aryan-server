@@ -39,7 +39,7 @@ exports.updateCard = async (req, res) => {
         res.status(500).json({
             success: false,
             error: err.message,
-            message: "Server error",
+            message: "Server error not updated",
         });
     }
 };
