@@ -17,16 +17,18 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
+
 app.use("/api/v1", cardRoutes);
 
 
 
 app.listen(PORT , ()=>{
     console.log(`server started at port no. ${PORT}`);
+
 });
 
 dbconnect();
 
-// app.get('/',(req , res)=>{
-//     res.send('hello A.P Singh')
-// });
+app.use('/',(req,res)=>{
+    res.send('Welcome to the API');
+  })
