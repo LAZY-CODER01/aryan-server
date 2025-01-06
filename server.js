@@ -4,9 +4,9 @@ const app = express();
 
 app.use(cors());
 
-const dbconnect = require('../config/database');
+const dbconnect = require('./config/database');
 require('dotenv').config();
-const cardRoutes = require("../routes/cardCRUD");
+const cardRoutes = require("./routes/cardCRUD");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,4 +19,4 @@ app.use('/', (req, res) => {
 
 dbconnect();
 
-module.exports = app;
+module.exports = app; // Export the app for Vercel
