@@ -4,31 +4,19 @@ const app = express();
 
 app.use(cors());
 
-
-const dbconnect = require('./config/database');
+const dbconnect = require('../config/database');
 require('dotenv').config();
-const cardRoutes = require("./routes/cardCRUD");
+const cardRoutes = require("../routes/cardCRUD");
 
-
-const PORT = process.env.PORT || 3000;
-
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: true })); 
-
-
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1", cardRoutes);
 
-
-
-app.listen(PORT , ()=>{
-    console.log(`server started at port no. ${PORT}`);
-
+app.use('/', (req, res) => {
+    res.send('Welcome to the API');
 });
 
 dbconnect();
 
-app.use('/',(req,res)=>{
-    res.send('Welcome to the API');
-  })
+module.exports = app;
