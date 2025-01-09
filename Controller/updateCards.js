@@ -3,9 +3,9 @@ const Card = require("../models/card");
 exports.updateCard = async (req, res) => {
     try {
         const { id } = req.params;
-        let { title, price, imageUrl } = req.body;
+        let { title, price, imageUrl,type } = req.body;
 
-        if (!title && !price && !imageUrl) {
+        if (!title && !price && !imageUrl && !type) {
             return res.status(400).json({
                 success: false,
                 message: "Please provide at least one field to update.",
@@ -23,10 +23,11 @@ exports.updateCard = async (req, res) => {
         title = title || temp.title;
         price = price || temp.price;
         imageUrl = imageUrl || temp.imageUrl;
+        type = type || temp.type;
 
         const updatedCard = await Card.findByIdAndUpdate(
             id,
-            { title, price, imageUrl },
+            { title, price, imageUrl,type },
             { new: true }
         );
 

@@ -6,7 +6,7 @@ require('dotenv').config();
 
 exports.createCard = async (req, res) => {
     try {
-        const { title,  price,  imageUrl } = req.body;
+        const { title,  price,  imageUrl ,type} = req.body;
 
         if (!title || !price) {
             return res.status(400).json({
@@ -15,7 +15,7 @@ exports.createCard = async (req, res) => {
             });
         }
 
-        const newCard = await Card.create({ title, price, imageUrl });
+        const newCard = await Card.create({ title, price, imageUrl,type });
         res.status(200).json({
             success: true,
             data: newCard,
