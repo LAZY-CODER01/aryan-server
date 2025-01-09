@@ -8,7 +8,7 @@ const app = express();
 
 // Configure CORS
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://aryan-card.vercel.app'], // Replace with your frontend URL
+    origin: ['http://localhost:5173', 'https://aryan-card.vercel.app'], // Replace with your frontend URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // If you need cookies
 };
